@@ -23,7 +23,7 @@
         
     }
     .card-subtitle{
-        background-color: green;
+        background-color: royalblue;
         padding: 4px;
         border-radius: 7px;
         display: inline;
@@ -50,11 +50,9 @@
 <body>
     <div class="card">
         <div class="card-body">
-            <h6 class="card-subtitle mb-2 text-body-secondary">Level3</h6>
+            <h6  id="badge" class="card-subtitle mb-2 text-body-secondary">⏫Level1</h6>
             <h5 class="card-title">JavaScript: Level Up</h5>
-            <p class="card-text">Click the button to increase the level number.</p>
-            <p>Current Level: <span id="levelNumber">1</span></p>
-            <div class="badge-level" id="badge">Level 1 </div>
+            <p>Click the button to increase the level number.</p> <p id="levelNumber"></p> 
             <div id="maxMsg"></div>
             <a href="level2.html" class="btn btn-secondary">Back</a>
             <button class="btn btn-success" id="levelUpBtn">Level Up</button>
@@ -62,19 +60,20 @@
         </div>
     </div>
     <script>
-    let level = 1;
+    let level = 0;
     const maxLevel = 6;
+    
+    const badge = document.getElementById("badge");
     const levelNumber = document.getElementById('levelNumber');
-    const badge = document.getElementById('badge');
     const levelUpBtn = document.getElementById('levelUpBtn');
     const maxMsg = document.getElementById('maxMsg');
 
     levelUpBtn.addEventListener('click', () => {
         if(level < maxLevel) {
             level++;
-            levelNumber.textContent = level;
-            badge.textContent = `Level ${level} `;
-            maxMsg.textContent = ""; // clear message
+            levelNumber.textContent = " 🆙 you level up!  Current: "+level ;
+             badge.textContent ="⏫level" +  level;
+            maxMsg.textContent = ""; 
         } else {
             maxMsg.textContent = "";
         }
